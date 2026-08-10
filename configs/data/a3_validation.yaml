@@ -1,0 +1,12 @@
+robot_config: configs/robots/a3.yaml
+
+datasets:
+  - name: a3_validation_clips
+    format: robot_state_npz
+    source_path: humanoidverse/data/examples/a3_validation/*.npz
+    weight: 1.0
+    auto_build:
+      train_clip_seconds: 8.0
+      clip_stride_seconds: 8.0
+      keep_short: true
+      min_clip_seconds: 5.0
