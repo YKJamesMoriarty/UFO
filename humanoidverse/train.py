@@ -150,7 +150,7 @@ def build_ufo_mjlab_config(
     selected = build_agent_preset(
         agent=agent,
         device=agent_device,
-        compile=not distributed_sync,
+        compile=False,
         update_z_every_step=resolved_update_z_every_step,
         lr_scale=lr_scale,
         clip_grad_norm=clip_grad_norm,

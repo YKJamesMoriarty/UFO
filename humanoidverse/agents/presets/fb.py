@@ -167,7 +167,7 @@ def build_fb_agent(
             actor_pessimism_penalty=0.5,
             stddev_clip=0.3,
             q_loss_coef=0.0,
-            batch_size=1024,
+            batch_size=256,
             discount=0.98,
             use_mix_rollout=True,
             update_z_every_step=int(update_z_every_step),
