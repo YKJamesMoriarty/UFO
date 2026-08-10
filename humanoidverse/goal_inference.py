@@ -197,6 +197,8 @@ def run_goal_inference(
     )
     wrapped_env, _ = env_cfg.build(num_envs=1)
     env = wrapped_env._env
+    env._motion_lib.load_all_motions()
+    env.is_evaluating = True
 
     output_dir = model_folder / "goal_inference"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -225,7 +227,6 @@ def run_goal_inference(
             pbar = tqdm(goals_to_evaluate, leave=False, disable=False)
             for goal in pbar:
                 motion_id = int(goal["motion_id"])
-                env.set_is_evaluating(motion_id)
                 gobs, _gobs_dict = get_backward_observation(
                     env,
                     motion_id,
